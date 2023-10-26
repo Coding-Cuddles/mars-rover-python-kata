@@ -65,6 +65,10 @@ While this model is closer to planets, it produces some significant edge cases
 that complicate the control system. For example, the behavior is undefined at
 the poles if we want the poles to be represented through the coordinates.
 
+The chief engineer decided to constrain the solution to the following: the
+poles are not "on the grid," so the rover moves "over" them but never rests
+on them.
+
 #### Example
 
 In a $4 \times 4$ grid, the following table shows the resulting position for a
