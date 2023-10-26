@@ -18,8 +18,8 @@ control software that translates the commands sent from Earth to instructions
 that the rover understands.
 
 To facilitate navigation, we treat the Mars surface as a grid where the rover's
-location is defined by coordinates $(x, y)$ and an orientation represented by
-one of the four compass directions, e.g., "0, 0, N".
+location is defined by coordinates $(x,y)$ and an orientation represented by
+one of the four compass directions, e.g., $(0,0,N)$.
 
 Given an initial rover's location, NASA sends commands encoded as a sequence
 of characters:
@@ -41,13 +41,24 @@ For *Opportunity*, the grid had the torus (or "donut") topology, where (think
 games like Snake or Pacman) the rover vanishes on the top and reappears on the
 bottom (and visa versa for left and right).
 
+#### Example
+
+In a $4 \times 4$ grid, the following table shows the resulting position for a
+movement on the grid (edge cases shown in bold text):
+
+| Initial  | $x + 1$  | $x - 1$           | $y + 1$  | $y - 1$           |
+|----------|----------|-------------------|----------|-------------------|
+| $(0, 0)$ | $(1, 0)$ | $\textbf{(3, 0)}$ | $(0, 1)$ | $\textbf{(0, 3)}$ |
+| $(1, 0)$ | $(2, 0)$ | $(0, 0)$          | $(1, 1)$ | $\textbf{(1, 3)}$ |
+| $(1, 1)$ | $(2, 1)$ | $(0, 1)$          | $(1, 2)$ | $(1, 0)$          |
+
 ### Exercise 2
 
 For *Curiosity*, NASA decided to improve the accuracy of their grid system by
 using a Polar coordinate system. This interpretation of the grid system lends
 itself to the concept of latitude and longitude: the sphere is sliced into an
 even number of latitudes (central lines) and longitudes (evenly spaced lines
-from North to South pole). In this model, coordinates (x, y) become abstract
+from North to South pole). In this model, coordinates $(x,y)$ become abstract
 representations of longitudes and latitudes.
 
 While this model is closer to planets, it produces some significant edge cases
@@ -56,15 +67,14 @@ the poles if we want the poles to be represented through the coordinates.
 
 #### Example
 
-In a $4 \times 4$ grid the following table shows the resulting position for a
-movement on the grid:
+In a $4 \times 4$ grid, the following table shows the resulting position for a
+movement on the grid (edge cases shown in bold text):
 
-| Initial pos. | x + 1  | x - 1  | y + 1  | y - 1  |
-|--------------|--------|--------|--------|--------|
-| (0, 0)       | (1, 0) | (3, 0) | (0, 1) | (2, 0) |
-| (1, 0)       | (2, 0) | (0, 0) | (1, 1) | (3, 0) |
-| (1, 1)       | (2, 1) | (1, 0) | (1, 2) | (1, 0) |
-| (2, 0)       | (3, 0) | (1, 0) | (2, 1) | (0, 0) |
+| Initial  | $x + 1$  | $x - 1$           | $y + 1$  | $y - 1$           |
+|----------|----------|-------------------|----------|-------------------|
+| $(0, 0)$ | $(1, 0)$ | $\textbf{(3, 0)}$ | $(0, 1)$ | $\textbf{(2, 0)}$ |
+| $(1, 0)$ | $(2, 0)$ | $(0, 0)$          | $(1, 1)$ | $\textbf{(3, 0)}$ |
+| $(1, 1)$ | $(2, 1)$ | $(0, 1)$          | $(1, 2)$ | $(1, 0)$          |
 
 ## Usage
 
