@@ -17,8 +17,8 @@ remotely controlled vehicles to the planet's surface. You need to develop a
 control software that translates the commands sent from Earth to instructions
 that the rover understands.
 
-NASA engineers treat the surface of Mars as a square grid, with side's
-length being a power of two, e.g., 4x4, 8x8, 16x16, etc.
+NASA engineers treat the surface of Mars as a square grid, with side's length
+being a power of two, e.g., 4x4, 8x8, 16x16, etc.
 
 On the grid, the rover's location is defined by coordinates (x, y) and an
 orientation represented by one of the four compass directions (N, S, W, or E).
@@ -37,8 +37,8 @@ games like Snake or Pacman) the rover vanishes on the top and reappears on the
 bottom (and visa versa for left and right).
 
 > [!NOTE]
-> In a 4x4 grid, the following table shows the resulting position for a movement
-> on the grid (edge cases shown in **bold**):
+> In a 4x4 grid, the following table shows the resulting position for a
+> movement on the grid (edge cases shown in **bold**):
 >
 > | Position | x + 1  | x - 1      | y + 1  | y - 1      |
 > |----------|--------|------------|--------|------------|
@@ -66,8 +66,8 @@ poles are not "on the grid," so the rover moves "over" them but never rests
 on them.
 
 > [!NOTE]
-> In a 4x4 grid, the following table shows the resulting position for a movement
-> on the grid (edge cases shown in **bold**):
+> In a 4x4 grid, the following table shows the resulting position for a
+> movement on the grid (edge cases shown in **bold**):
 >
 > | Position | x + 1  | x - 1      | y + 1  | y - 1      |
 > |----------|--------|------------|--------|------------|
@@ -80,7 +80,7 @@ Your task is to extend the rover control software that you created for
 should still support the older "torus" topology, and your implementation should
 provide a way to select the desired topology.
 
-## Exercise 3
+### Exercise 3
 
 Now, each grid point might contain an obstacle, so we need to implement
 obstacle detection. If a given sequence of commands encounters an obstacle, the
