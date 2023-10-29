@@ -7,7 +7,7 @@
 
 This kata complements [Clean Code: Advanced TDD, Ep. 20](https://cleancoders.com/episode/clean-code-episode-20).
 
-This repository contains two exercises designed to improve your skills in
+This repository contains several exercises designed to improve your skills in
 test-driven development.
 
 ## Instructions
@@ -17,25 +17,20 @@ remotely controlled vehicles to the planet's surface. You need to develop a
 control software that translates the commands sent from Earth to instructions
 that the rover understands.
 
-To facilitate navigation, we treat the Mars surface as a grid where the rover's
-location is defined by coordinates (x, y) and an orientation represented by
-one of the four compass directions (N, S, W, or E).
+NASA engineers treat the surface of Mars as a square grid, with side's
+length being a power of two, e.g., 4x4, 8x8, 16x16, etc.
+
+On the grid, the rover's location is defined by coordinates (x, y) and an
+orientation represented by one of the four compass directions (N, S, W, or E).
+Coordinates (0, 0) represent the bottom left corner of the grid.
 
 Given an initial rover's location, NASA sends commands encoded as a sequence
-of characters (string):
+(string) of characters with the following meaning:
 
 * 'L' and 'R' turn the rover 90 degrees left or right, respectively;
 * 'F' and 'B' move the rover forward or backward one grid point.
 
 ### Exercise 1
-
-NASA engineers treat the surface of Mars as a square grid, with each side's
-length being a power of two.
-
-Also, each grid point might contain an obstacle, so we need to implement
-obstacle detection. If a given sequence of commands encounters an obstacle, the
-rover moves up to the last possible point, aborts the sequence, and reports the
-obstacle.
 
 For *Opportunity*, the grid had the torus (or "donut") topology, where (think
 games like Snake or Pacman) the rover vanishes on the top and reappears on the
@@ -51,6 +46,8 @@ movement on the grid (edge cases shown in **bold**):
 | (0, 0)   | (1, 0) | **(3, 0)** | (0, 1) | **(0, 3)** |
 | (1, 0)   | (2, 0) | (0, 0)     | (1, 1) | **(1, 3)** |
 | (1, 1)   | (2, 1) | (0, 1)     | (1, 2) | (1, 0)     |
+
+Your task is to implement Opportunity's control software.
 
 ### Exercise 2
 
@@ -71,14 +68,30 @@ on them.
 
 #### Example
 
-In a 4x4 grid, the following table shows the resulting position for a
-movement on the grid (edge cases shown in **bold**):
+In a 4x4 grid, the following table shows the resulting position for a movement
+on the grid (edge cases shown in **bold**):
 
 | Position | x + 1  | x - 1      | y + 1  | y - 1      |
 |----------|--------|------------|--------|------------|
 | (0, 0)   | (1, 0) | **(3, 0)** | (0, 1) | **(2, 0)** |
 | (1, 0)   | (2, 0) | (0, 0)     | (1, 1) | **(3, 0)** |
 | (1, 1)   | (2, 1) | (0, 1)     | (1, 2) | (1, 0)     |
+
+Your task is to extend the rover control software that you created for
+Opportunity, to support this new "polar" grid topology. The control software
+should still support the older "torus" topology, so we can use the same
+software without breaking the compatibility. Your implementation should provide
+a way for specifying the desired topology.
+
+## Exercise 3
+
+Now, each grid point might contain an obstacle, so we need to implement
+obstacle detection. If a given sequence of commands encounters an obstacle, the
+rover moves up to the last possible point, aborts the sequence, and reports the
+obstacle by throwing an exception.
+
+Your task is to extend the rover control software to support obstacle
+detection.
 
 ## Usage
 
