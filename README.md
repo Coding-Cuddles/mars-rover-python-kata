@@ -36,16 +36,15 @@ For *Opportunity*, the grid had the torus (or "donut") topology, where (think
 games like Snake or Pacman) the rover vanishes on the top and reappears on the
 bottom (and visa versa for left and right).
 
-#### Example
-
-In a 4x4 grid, the following table shows the resulting position for a
-movement on the grid (edge cases shown in **bold**):
-
-| Position | x + 1  | x - 1      | y + 1  | y - 1      |
-|----------|--------|------------|--------|------------|
-| (0, 0)   | (1, 0) | **(3, 0)** | (0, 1) | **(0, 3)** |
-| (1, 0)   | (2, 0) | (0, 0)     | (1, 1) | **(1, 3)** |
-| (1, 1)   | (2, 1) | (0, 1)     | (1, 2) | (1, 0)     |
+> [!NOTE]
+> In a 4x4 grid, the following table shows the resulting position for a movement
+> on the grid (edge cases shown in **bold**):
+>
+> | Position | x + 1  | x - 1      | y + 1  | y - 1      |
+> |----------|--------|------------|--------|------------|
+> | (0, 0)   | (1, 0) | **(3, 0)** | (0, 1) | **(0, 3)** |
+> | (1, 0)   | (2, 0) | (0, 0)     | (1, 1) | **(1, 3)** |
+> | (1, 1)   | (2, 1) | (0, 1)     | (1, 2) | (1, 0)     |
 
 Your task is to implement Opportunity's control software.
 
@@ -66,22 +65,20 @@ The chief engineer decided to constrain the solution to the following: the
 poles are not "on the grid," so the rover moves "over" them but never rests
 on them.
 
-#### Example
-
-In a 4x4 grid, the following table shows the resulting position for a movement
-on the grid (edge cases shown in **bold**):
-
-| Position | x + 1  | x - 1      | y + 1  | y - 1      |
-|----------|--------|------------|--------|------------|
-| (0, 0)   | (1, 0) | **(3, 0)** | (0, 1) | **(2, 0)** |
-| (1, 0)   | (2, 0) | (0, 0)     | (1, 1) | **(3, 0)** |
-| (1, 1)   | (2, 1) | (0, 1)     | (1, 2) | (1, 0)     |
+> [!NOTE]
+> In a 4x4 grid, the following table shows the resulting position for a movement
+> on the grid (edge cases shown in **bold**):
+>
+> | Position | x + 1  | x - 1      | y + 1  | y - 1      |
+> |----------|--------|------------|--------|------------|
+> | (0, 0)   | (1, 0) | **(3, 0)** | (0, 1) | **(2, 0)** |
+> | (1, 0)   | (2, 0) | (0, 0)     | (1, 1) | **(3, 0)** |
+> | (1, 1)   | (2, 1) | (0, 1)     | (1, 2) | (1, 0)     |
 
 Your task is to extend the rover control software that you created for
-Opportunity, to support this new "polar" grid topology. The control software
-should still support the older "torus" topology, so we can use the same
-software without breaking the compatibility. Your implementation should provide
-a way for specifying the desired topology.
+*Opportunity* to support this new "polar" grid topology. The control software
+should still support the older "torus" topology, and your implementation should
+provide a way to select the desired topology.
 
 ## Exercise 3
 
