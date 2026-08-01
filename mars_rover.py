@@ -9,7 +9,6 @@ class Location:
 
 
 class MarsRover:
-
     def __init__(self, location: Location):
         self.location = location
 
