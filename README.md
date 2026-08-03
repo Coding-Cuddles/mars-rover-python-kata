@@ -28,8 +28,8 @@ Coordinates (0, 0) represent the bottom left corner of the grid.
 Given an initial rover's location, NASA sends commands encoded as a sequence
 (string) of characters with the following meaning:
 
-* 'L' and 'R' turn the rover 90 degrees left or right, respectively;
-* 'F' and 'B' move the rover forward or backward one grid point.
+- 'L' and 'R' turn the rover 90 degrees left or right, respectively;
+- 'F' and 'B' move the rover forward or backward one grid point.
 
 ### Exercise 1
 
@@ -174,4 +174,4 @@ Make is optional. Run `make` or `make help` to list these commands in the termin
 
 ## Credits and references
 
-* <https://kata-log.rocks/mars-rover-kata>
+- <https://kata-log.rocks/mars-rover-kata>
